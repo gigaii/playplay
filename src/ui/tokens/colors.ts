@@ -16,7 +16,7 @@ export const lightColors = {
   onAccentContainer: "#4A0A27",
 
   // Neutrals & Backgrounds
-  background: "#FAF9FB",
+  background: "#dad3e2ff",
   surface: "#FFFFFF",
   surfaceVariant: "#F3F2F6",
   onSurface: "#1A1A1E",

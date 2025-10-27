@@ -3,22 +3,24 @@ import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "../contexts/themeProvider";
 import { NotificationProvider } from "../contexts/notificationProvider";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { StatusBar } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { StatusBar, StyleSheet } from "react-native";
 
 import {
   useFonts,
-  ComicNeue_400Regular as ComicNeueRegular,
-  ComicNeue_700Bold as ComicNeueBold,
-} from "@expo-google-fonts/comic-neue";
+  IBMPlexSans_400Regular as IBMPlexRegular,
+  IBMPlexSans_500Medium as IBMPlexMedium,
+  IBMPlexSans_700Bold as IBMPlexBold,
+} from "@expo-google-fonts/ibm-plex-sans";
 import { PressStart2P_400Regular as PressStart2PRegular } from "@expo-google-fonts/press-start-2p";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    "ComicNeue-Regular": ComicNeueRegular,
-    "ComicNeue-Bold": ComicNeueBold,
+    "IBMPlex-Regular": IBMPlexRegular,
+    "IBMPlex-Medium": IBMPlexMedium,
+    "IBMPlex-Bold": IBMPlexBold,
     "PressStart2P-Regular": PressStart2PRegular,
   });
 
@@ -37,9 +39,19 @@ export default function RootLayout() {
       <ThemeProvider>
         <NotificationProvider>
           <StatusBar translucent backgroundColor="transparent" />
-          <Slot />
+          <SafeAreaView style={styles.safeArea}>
+            <Slot />
+          </SafeAreaView>
         </NotificationProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    paddingHorizontal: 16, // ← only left & right spacing
+    paddingVertical: 0,    // ← no top/bottom padding
+  },
+});

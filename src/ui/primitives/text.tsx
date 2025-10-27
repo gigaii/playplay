@@ -1,6 +1,7 @@
 import React from "react";
 import { Text as RNText, TextProps, StyleSheet } from "react-native";
 import { useTheme } from "../../../contexts/themeProvider";
+import { typography } from "../tokens/typography";
 
 interface AppTextProps extends TextProps {
   variant?: keyof typeof styles;
@@ -33,10 +34,23 @@ export const Text: React.FC<AppTextProps> = ({
 };
 
 const styles = StyleSheet.create({
-  h1: { fontSize: 32, fontWeight: "700", lineHeight: 40 },
-  h2: { fontSize: 24, fontWeight: "600", lineHeight: 32 },
-  h3: { fontSize: 20, fontWeight: "600", lineHeight: 28 },
-  subtitle: { fontSize: 18, fontWeight: "500", lineHeight: 26 },
-  body: { fontSize: 16, fontWeight: "400", lineHeight: 24 },
-  caption: { fontSize: 12, fontWeight: "400", lineHeight: 16 },
+  h1: {
+    fontSize: typography.fontSizes.h1,
+    fontWeight: typography.fontWeights.semibold,
+    lineHeight: typography.lineHeights.h1,
+    fontFamily: typography.fontFamily.regular,
+  },
+  h2: {
+    fontSize: typography.fontSizes.h2,
+    fontWeight: typography.fontWeights.medium,
+    lineHeight: typography.lineHeights.h2,
+    fontFamily: typography.fontFamily.regular,
+  },
+  body: {
+    fontSize: typography.fontSizes.body,
+    fontWeight: typography.fontWeights.normal,
+    lineHeight: typography.lineHeights.body,
+    fontFamily: typography.fontFamily.regular,
+  },
 });
+

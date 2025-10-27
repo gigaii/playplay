@@ -6,59 +6,61 @@ import { Text } from "../../src/ui/primitives/text";
 import { Icon } from "../../src/ui/primitives/icon";
 import { Button } from "../../src/ui/components/button";
 import { TextInput } from "../../src/ui/components/textInput";
+import { spacing } from "../../src/ui/tokens/spacing";
 
 export default function HomeScreen() {
   const { colors, spacing } = useTheme();
   const { showToast, showModal } = useNotification();
+  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      <Icon name="home-variant" size={40} variant="primary" />
-      <Text
-        variant="h1"
-        style={{ marginTop: spacing.sm, color: colors.textPrimary }}
-      >
-        Home Tab
-      </Text>
 
-      <Text
-        variant="body"
-        style={{ color: colors.textSecondary, marginTop: spacing.xs }}
-      >
-        Welcome back! Explore your goofy new theme 🎉
-      </Text>
+      <View style={{ width: "100%" }}>
+        <View style={{ width: "100%", gap: spacing['2xs'], alignItems: "center" }}>
+          <Text
+          variant="h1"
+          style={{ color: colors.textPrimary }}
+          >
+          Welcome Back!
+          </Text>
 
-      {/* Themed Input */}
-      <View style={{ width: "80%", marginTop: spacing.lg }}>
-        <TextInput
-          label="Your Name"
+          <Text
+          variant="body"
+          style={{ color: colors.textSecondary, }}
+          >
+          Login to continue with this app
+          </Text>
+        </View>
+      </View>
+
+      {/* Themed Input Group */}
+      <View style={{ width: "100%" }}>
+        <View style={{ width: "100%", gap: spacing.xs }}>
+          <TextInput
           value={name}
           onChangeText={setName}
-          placeholder="Type something fun..."
-          iconLeft="account"
+          placeholder="Username"
         />
+
+          <TextInput
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Password"
+          secureTextEntry
+        />
+        </View>
       </View>
 
       {/* Themed Button */}
-      <View style={{ marginTop: spacing.md }}>
+      <View style={{ width: "100%", gap: spacing.md }}>
         <Button
-          title="Say Hello"
+          title="Sign In"
           onPress={() => alert(`Hey ${name || "there"} 👋`)}
           variant="primary"
-          iconLeft="hand-wave-outline"
         />
-      </View>
 
-      <View style={{ marginTop: spacing.md }}>
-        <Button
-          title="Show Toast"
-          onPress={() => showToast({ message: "This is a toast!" })}
-          variant="secondary"
-        />
-      </View>
-
-      <View style={{ marginTop: spacing.md }}>
         <Button
           title="Show Modal"
           onPress={() =>
@@ -70,6 +72,7 @@ export default function HomeScreen() {
           variant="outline"
         />
       </View>
+
     </View>
   );
 }
@@ -79,5 +82,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    gap: spacing.sm,
   },
 });

@@ -1,21 +1,21 @@
 export const typography = {
   fontFamily: {
-    regular: "ComicNeue-Regular", // cheerful & round
-    medium: "ComicNeue-Medium",
-    semibold: "ComicNeue-Bold",
-    bold: "ComicNeue-Bold",
+    regular: "IBMPlexSans_400Regular", // cheerful & round
+    medium: "IBMPlexSans_500Medium",
+    semibold: "IBMPlexSans_700Bold",
+    bold: "IBMPlexSans_700Bold",
     monospace: "PressStart2P-Regular", // 8-bit retro for fun text
   },
   fontSizes: {
     display: 48, // make headlines extra loud
-    h1: 36,
-    h2: 28,
-    h3: 22,
-    subtitle: 20,
-    body: 17,
-    label: 15,
-    caption: 13,
-    micro: 11,
+    h1: 30,
+    h2: 24,
+    h3: 20,
+    subtitle: 14,
+    body: 16,
+    label: 18,
+    caption: 12,
+    micro: 10,
   },
   fontWeights: {
     light: "300",
