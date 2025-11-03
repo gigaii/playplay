@@ -9,20 +9,23 @@ import { StatusBar, StyleSheet } from "react-native";
 import {
   useFonts,
   IBMPlexSans_400Regular as IBMPlexRegular,
-  IBMPlexSans_500Medium as IBMPlexMedium,
-  IBMPlexSans_700Bold as IBMPlexBold,
+  IBMPlexSans_500Medium  as IBMPlexMedium,
+  IBMPlexSans_600SemiBold as IBMPlexSemiBold, // 👈 add this
+  IBMPlexSans_700Bold    as IBMPlexBold,
 } from "@expo-google-fonts/ibm-plex-sans";
 import { PressStart2P_400Regular as PressStart2PRegular } from "@expo-google-fonts/press-start-2p";
+import { spacing } from "../src/ui/tokens/spacing";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
-    "IBMPlex-Regular": IBMPlexRegular,
-    "IBMPlex-Medium": IBMPlexMedium,
-    "IBMPlex-Bold": IBMPlexBold,
-    "PressStart2P-Regular": PressStart2PRegular,
-  });
+const [fontsLoaded] = useFonts({
+  "IBMPlex-Regular":  IBMPlexRegular,
+  "IBMPlex-Medium":   IBMPlexMedium,
+  "IBMPlex-SemiBold": IBMPlexSemiBold, // 👈 register 600
+  "IBMPlex-Bold":     IBMPlexBold,
+  "PressStart2P-Regular": PressStart2PRegular,
+});
 
   const onReady = useCallback(async () => {
     if (fontsLoaded) await SplashScreen.hideAsync();
@@ -51,7 +54,7 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    paddingHorizontal: 16, // ← only left & right spacing
+    paddingHorizontal: spacing.xs, // ← only left & right spacing
     paddingVertical: 0,    // ← no top/bottom padding
   },
 });

@@ -1,21 +1,18 @@
 export const typography = {
   fontFamily: {
-    regular: "IBMPlexSans_400Regular", // cheerful & round
-    medium: "IBMPlexSans_500Medium",
-    semibold: "IBMPlexSans_700Bold",
-    bold: "IBMPlexSans_700Bold",
-    monospace: "PressStart2P-Regular", // 8-bit retro for fun text
+    regular:  "IBMPlex-Regular",
+    medium:   "IBMPlex-Medium",
+    semibold: "IBMPlex-SemiBold", // 👈 must match _layout.tsx exactly
+    bold:     "IBMPlex-Bold",
+    monospace:"PressStart2P-Regular",
   },
   fontSizes: {
-    display: 48, // make headlines extra loud
-    h1: 30,
-    h2: 24,
-    h3: 20,
-    subtitle: 14,
-    body: 16,
-    label: 18,
-    caption: 12,
-    micro: 10,
+    extraLarge: 36,
+    Large: 30,
+    Medium: 24,
+    Header: 18,
+    Body: 16,
+    Subtitle: 14,
   },
   fontWeights: {
     light: "300",
@@ -25,15 +22,12 @@ export const typography = {
     bold: "800",
   },
   lineHeights: {
-    display: 54,
-    h1: 44,
-    h2: 36,
-    h3: 30,
-    subtitle: 28,
-    body: 24,
-    label: 22,
-    caption: 18,
-    micro: 16,
+    extraLarge: 44,
+    Large: 44,
+    Medium: 36,
+    Normal: 30,
+    Small: 28,
+    extraSmall: 24,
   },
   letterSpacings: {
     tight: -0.4,
